@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Lawyer Prototype</title>
+    <title>AI Lawyer - Legal Assistance</title>
     
     <!-- Google Fonts Import: Playfair Display for headers, Lora for body -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,26 +13,35 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header>
-        <h1>AI Lawyer</h1>
-        <p>A Prototype Demonstration</p>
-    </header>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="navbar-brand">AI Lawyer</a>
+            <ul class="navbar-nav">
+                <li><a href="#">How it Works</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#" class="btn btn-secondary">Sign In</a></li>
+            </ul>
+        </div>
+    </nav>
 
-    <main>
+    <main class="main-content">
+        <div class="hero-section">
+            <h1>Instant Legal Document Analysis</h1>
+            <p class="subtitle">Paste your legal document below to get a clear, concise summary powered by AI.</p>
+        </div>
+
         <div class="feature-container">
-            <h2>Case Summarizer</h2>
-            <p>Paste the text of a legal case below and click "Summarize" to receive a concise overview of the key points.</p>
-            <textarea id="caseTextInput" rows="15" placeholder="Paste legal text here..."></textarea>
-            <button id="summarizeButton">Summarize</button>
-            <div class="result-container" id="summaryOutput">
+            <textarea id="caseTextInput" rows="15" placeholder="Paste your legal document, case file, or terms of service here..."></textarea>
+            <button id="summarizeButton" class="btn btn-primary">Analyze and Summarize</button>
+            <div id="summaryOutput" class="result-container">
                 <h3>Summary</h3>
-                <p>Your summary will appear here...</p>
+                <p>Your summary will appear here.</p>
             </div>
         </div>
     </main>
 
-    <footer>
-        <p>&copy; 2025 AI Lawyer Project</p>
+    <footer class="site-footer">
+        <p>&copy; 2025 AI Lawyer Project. All rights reserved.</p>
     </footer>
 
     <script src="js/script.js"></script>

@@ -1,22 +1,24 @@
 document.addEventListener('DOMContentLoaded', () => {
     const summarizeButton = document.getElementById('summarizeButton');
     const caseTextInput = document.getElementById('caseTextInput');
-    const summaryOutput = document.getElementById('summaryOutput').querySelector('p');
+    const summaryContainer = document.getElementById('summaryOutput');
+    const summaryOutput = summaryContainer.querySelector('p');
 
     summarizeButton.addEventListener('click', async () => {
         const textToSummarize = caseTextInput.value;
 
-        // Basic validation: Check if there is text to summarize
         if (!textToSummarize.trim()) {
-            summaryOutput.textContent = 'Please enter some text to summarize.';
+            summaryOutput.textContent = 'Please enter some text to analyze.';
+            summaryContainer.style.display = 'block'; // Show the container even for an error
             return;
         }
 
         // Show a loading message
-        summaryOutput.textContent = 'Summarizing...';
+        summaryContainer.style.display = 'block'; // Make container visible
+        summaryOutput.textContent = 'Analyzing...';
+        summaryContainer.querySelector('h3').style.display = 'none'; // Hide "Summary" title while loading
 
         try {
-            // This is the URL of your local Flask backend.
             const response = await fetch('http://127.0.0.1:5001/api/summarize', {
                 method: 'POST',
                 headers: {
@@ -32,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = await response.json();
             
             // Display the summary received from the backend
+            summaryContainer.querySelector('h3').style.display = 'block'; // Show title again
             summaryOutput.textContent = data.summary;
 
         } catch (error) {
